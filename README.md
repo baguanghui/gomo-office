@@ -1,2 +1,2 @@
 # gomo-office
-通用基础平台
+java通用基础平台,运行环境openJDK11
