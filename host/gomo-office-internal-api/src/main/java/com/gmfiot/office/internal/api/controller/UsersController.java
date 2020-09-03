@@ -2,6 +2,7 @@ package com.gmfiot.office.internal.api.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gmfiot.core.data.Result;
+import com.gmfiot.core.util.JsonUtil;
 import com.gmfiot.office.model.User;
 import com.gmfiot.office.model.query.UserQuery;
 import com.gmfiot.office.service.definition.UserService;
@@ -27,8 +28,9 @@ public class UsersController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/users",method = RequestMethod.POST,produces = "application/json")
+    @RequestMapping(value = "/users",method = RequestMethod.POST,produces = {"application/json"})
     public Result saveUser(@RequestBody User user){
+        System.out.println(JsonUtil.toJson(user));
         var result = userService.addUser(user);
         return  result;
     }

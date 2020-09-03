@@ -11,7 +11,7 @@ public interface MenuMapper extends BaseMapper<Menu> {
 
     @Select(value = "SELECT * from Menus where id = #{id}")
     @Override
-    Menu selectById(Long id);
+    Menu selectById(Long id,Class<?> clazz);
 
     @Select(value = "SELECT * from Menus where 1=1")
     @Override

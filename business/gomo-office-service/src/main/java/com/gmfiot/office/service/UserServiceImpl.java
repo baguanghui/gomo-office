@@ -33,6 +33,16 @@ public class UserServiceImpl implements UserService {
     JdbcTemplate jdbcTemplate;
 
     @Override
+    public Result<User> addUser(User user) {
+        var id = dataProvider.getId();
+        System.out.println("id=" + id);
+        user.setId(id);
+        userMapper.insert(user);
+        var newUser = userMapper.selectById(id,User.class);
+        return Result.success(newUser);
+    }
+
+    @Override
     public Result<User> getById(Long id) {
 //        var user = userMapper.selectById(id);
 
@@ -46,14 +56,7 @@ public class UserServiceImpl implements UserService {
         return Result.success(userList);
     }
 
-    @Override
-    public Result<User> addUser(User user) {
-        var id = dataProvider.getId();
-        user.setId(id);
-        userMapper.insert(user);
-        var newUser = userMapper.selectById(id);
-        return Result.success(newUser);
-    }
+
 
     private <E> E queryById(long id,Class<E> type){
 

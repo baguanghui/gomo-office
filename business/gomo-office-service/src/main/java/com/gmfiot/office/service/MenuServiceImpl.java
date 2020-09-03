@@ -19,7 +19,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public Result<Menu> getById(Long id) {
-        return Result.success(menuMapper.selectById(id));
+        return Result.success(menuMapper.selectById(id,Menu.class));
     }
 
     @Override

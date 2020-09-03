@@ -40,17 +40,17 @@ public interface UserMapper extends BaseMapper<User> {
     @Override
     void insert(User user);
 
-    @UpdateProvider(type = UserSqlProvider.class, method = "update")
+    @UpdateProvider(type = UserSqlProvider.class, method = "updateById")
     @Override
     void updateById(User entity);
 
-    @Delete("DELETE FROM users WHERE id =#{id}")
+    @UpdateProvider(type = UserSqlProvider.class, method = "deleteById")
     @Override
-    void deleteById(long id);
+    void deleteById(long id,Class<?> clazz);
 
-    @Select(value = "SELECT * from Users where id = #{id}")
+    @UpdateProvider(type = UserSqlProvider.class, method = "selectById")
     @Override
-    User selectById(Long id);
+    User selectById(Long id,Class<?> clazz);
 
     @SelectProvider(type = UserSqlProvider.class, method = "selectByQuery")
     @Override
