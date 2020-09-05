@@ -44,7 +44,7 @@ public class UserSqlProvider {
 //        return sql.toString();
         var tableInfo = SqlServerSqlGenerator.getTableInfo(user.getClass());
         StringBuffer sql = new StringBuffer(String.format("UPDATE %s SET ",tableInfo.getTableName()));
-        List<String> values = SqlServerSqlGenerator.getNotNullColumns(user).stream().map(field -> String.format("%s = #{%s}",field,field)).collect(Collectors.toList());
+        List<String> values = SqlServerSqlGenerator.getNotNullColumns(user).stream().filter(p -> !p.equals("id")).map(field -> String.format("%s = #{%s}",field,field)).collect(Collectors.toList());
         var valueStr = String.join(",",values);
         sql.append(valueStr);
         sql.append(" WHERE Id = #{id}");
@@ -58,10 +58,9 @@ public class UserSqlProvider {
     }
 
     public String selectById(Long id,Class<?> clazz) {
-        String methodName = ReflectionUtil.getCurrentMethodName();
         var tableInfo = SqlServerSqlGenerator.getTableInfo(clazz);
         var columnStr = String.join(",",tableInfo.getColumns());
-        var sql = String.format("SELECT %s FROM %s WHERE Id = #{id}",columnStr,tableInfo.getTableName());
+        var sql = String.format("SELECT %s FROM %s WHERE id = #{id}",columnStr,tableInfo.getTableName());
         return sql;
     }
 

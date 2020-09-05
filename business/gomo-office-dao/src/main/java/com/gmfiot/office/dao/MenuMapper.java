@@ -1,7 +1,7 @@
 package com.gmfiot.office.dao;
 
-import com.gmfiot.core.data.BaseMapper;
 import com.gmfiot.core.data.Query;
+import com.gmfiot.data.BaseMapper;
 import com.gmfiot.office.model.Menu;
 import org.apache.ibatis.annotations.Select;
 

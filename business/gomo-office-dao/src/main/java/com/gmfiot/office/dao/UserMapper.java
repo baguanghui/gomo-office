@@ -1,7 +1,7 @@
 package com.gmfiot.office.dao;
 
-import com.gmfiot.core.data.BaseMapper;
 import com.gmfiot.core.data.Query;
+import com.gmfiot.data.BaseMapper;
 import com.gmfiot.office.model.User;
 import org.apache.ibatis.annotations.*;
 
@@ -38,27 +38,21 @@ public interface UserMapper extends BaseMapper<User> {
 
     @InsertProvider(type = UserSqlProvider.class,method = "insert")
     @Override
-    void insert(User user);
+    Integer insert(User user);
 
     @UpdateProvider(type = UserSqlProvider.class, method = "updateById")
     @Override
-    void updateById(User entity);
+    Integer updateById(User entity);
 
-    @UpdateProvider(type = UserSqlProvider.class, method = "deleteById")
+    @DeleteProvider(type = UserSqlProvider.class, method = "deleteById")
     @Override
-    void deleteById(long id,Class<?> clazz);
+    Integer deleteById(long id,Class<?> clazz);
 
-    @UpdateProvider(type = UserSqlProvider.class, method = "selectById")
+    @SelectProvider(type = UserSqlProvider.class, method = "selectById")
     @Override
     User selectById(Long id,Class<?> clazz);
 
     @SelectProvider(type = UserSqlProvider.class, method = "selectByQuery")
     @Override
     List<User> selectList(Query query);
-
-//    @UpdateProvider(type = UserSqlProvider.class, method = "updateUser")
-//    public int updateUser(@Param("U") User user);
-//
-//    @InsertProvider(type= UserSqlProvider.class, method = "batchInsert")
-//    int batchInsert(@Param("userList")List<User> userList);
 }

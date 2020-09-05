@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserService {
-    Result<User> getById(Long id);
-    Result<List<User>> getList(Query query);
     Result<User> addUser(User user);
+    Result<User> getById(Long id);
+    Result deleteById(Long id);
+    Result<User> updateById(User user);
+    Result<List<User>> getList(Query query);
 }
