@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result<User> addUser(User user) {
         var id = dataProvider.getId();
+        //dataProvider.getNamedParameterJdbcTemplate();
         System.out.println("id=" + id);
         user.setId(id);
         var effectRows= userMapper.insert(user);

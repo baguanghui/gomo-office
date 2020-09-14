@@ -34,6 +34,8 @@ public class UsersController {
     @RequestMapping(value = "/users/{id}",method = RequestMethod.GET)
     public Result getUser(@PathVariable long id){
         var result = userService.getById(id);
+
+
         return result;
     }
 
@@ -62,9 +64,7 @@ public class UsersController {
 
 
     @RequestMapping(value = "/users",method = RequestMethod.GET)
-    public Result getAll(@RequestParam User user){
-        Map<String, Object> map = new HashMap<String, Object>();
-        var query = new UserQuery();
+    public Result getUserList(UserQuery query){
         var result = userService.getList(query);
         return  result;
     }

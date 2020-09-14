@@ -46,11 +46,11 @@ public interface UserMapper extends BaseMapper<User> {
 
     @DeleteProvider(type = UserSqlProvider.class, method = "deleteById")
     @Override
-    Integer deleteById(long id,Class<?> clazz);
+    Integer deleteById(long id,Class<?> modelClass);
 
     @SelectProvider(type = UserSqlProvider.class, method = "selectById")
     @Override
-    User selectById(Long id,Class<?> clazz);
+    User selectById(Long id,Class<?> modelClass);
 
     @SelectProvider(type = UserSqlProvider.class, method = "selectByQuery")
     @Override
