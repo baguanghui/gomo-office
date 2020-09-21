@@ -6,6 +6,7 @@ import com.gmfiot.office.model.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ThinkPad
@@ -46,13 +47,13 @@ public interface UserMapper extends BaseMapper<User> {
 
     @DeleteProvider(type = UserSqlProvider.class, method = "deleteById")
     @Override
-    Integer deleteById(long id,Class<?> modelClass);
+    Integer deleteById(long id);
 
     @SelectProvider(type = UserSqlProvider.class, method = "selectById")
     @Override
-    User selectById(Long id,Class<?> modelClass);
+    User selectById(Long id);
 
     @SelectProvider(type = UserSqlProvider.class, method = "selectByQuery")
     @Override
-    List<User> selectList(Query query);
+    List<User> selectList(Object query);
 }

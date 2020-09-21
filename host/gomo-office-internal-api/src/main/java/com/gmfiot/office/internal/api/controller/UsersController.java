@@ -6,6 +6,7 @@ import com.gmfiot.office.model.User;
 import com.gmfiot.office.model.query.UserQuery;
 import com.gmfiot.office.service.definition.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,6 @@ public class UsersController {
     public Result getUser(@PathVariable long id){
         var result = userService.getById(id);
 
-
         return result;
     }
 
@@ -60,8 +60,6 @@ public class UsersController {
         var result = userService.updateById(user);
         return result;
     }
-
-
 
     @RequestMapping(value = "/users",method = RequestMethod.GET)
     public Result getUserList(UserQuery query){
