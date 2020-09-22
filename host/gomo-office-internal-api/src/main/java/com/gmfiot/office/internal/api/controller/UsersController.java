@@ -6,14 +6,12 @@ import com.gmfiot.office.model.User;
 import com.gmfiot.office.model.query.UserQuery;
 import com.gmfiot.office.service.definition.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author ThinkPad
  */
+@RequestMapping(value = "/users")
 @RestController
 public class UsersController {
 
@@ -25,17 +23,16 @@ public class UsersController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/users",method = RequestMethod.POST,produces = {"application/json"})
+    @RequestMapping(method = RequestMethod.POST,produces = {"application/json"})
     public Result saveUser(@RequestBody User user){
         System.out.println(JsonUtil.toJson(user));
         var result = userService.addUser(user);
         return  result;
     }
 
-    @RequestMapping(value = "/users/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public Result getUser(@PathVariable long id){
         var result = userService.getById(id);
-
         return result;
     }
 
@@ -44,7 +41,7 @@ public class UsersController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/users/{id}",method = RequestMethod.DELETE,produces = "application/json")
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE,produces = "application/json")
     public Result deleteUser(@PathVariable long id){
         var result = userService.deleteById(id);
         return result;
@@ -55,13 +52,13 @@ public class UsersController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/users",method = RequestMethod.PUT,produces = "application/json")
+    @RequestMapping(method = RequestMethod.PUT,produces = "application/json")
     public Result updateUser(@RequestBody User user){
         var result = userService.updateById(user);
         return result;
     }
 
-    @RequestMapping(value = "/users",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET,produces = "application/json")
     public Result getUserList(UserQuery query){
         var result = userService.getList(query);
         return  result;
