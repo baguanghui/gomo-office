@@ -16,7 +16,8 @@
 		<module>host/gomo-office-web</module>
 		<module>host/gomo-office-internal-api</module>
 		<module>host/gomo-office-api</module>
-	</modules>
+        <module>host/gomo-office-scheduler</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
