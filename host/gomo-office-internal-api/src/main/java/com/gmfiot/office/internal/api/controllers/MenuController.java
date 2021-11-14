@@ -1,11 +1,8 @@
-package com.gmfiot.office.internal.api.controller;
+package com.gmfiot.office.internal.api.controllers;
 
 import com.gmfiot.core.data.Result;
-import com.gmfiot.office.model.User;
 import com.gmfiot.office.service.definition.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

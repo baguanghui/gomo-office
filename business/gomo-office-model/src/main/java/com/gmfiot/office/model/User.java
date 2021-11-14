@@ -1,12 +1,15 @@
 package com.gmfiot.office.model;
 
 import com.gmfiot.core.model.BaseModel;
+import com.gmfiot.data.annotation.Table;
+
 
 import java.util.Date;
 
 /**
  * @author ThinkPad
  */
+@Table(name = "[User]")
 public class User extends BaseModel {
     private String name;
     private Integer status;

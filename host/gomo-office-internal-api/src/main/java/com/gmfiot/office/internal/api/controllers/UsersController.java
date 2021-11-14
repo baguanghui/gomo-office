@@ -1,4 +1,4 @@
-package com.gmfiot.office.internal.api.controller;
+package com.gmfiot.office.internal.api.controllers;
 
 import com.gmfiot.core.data.Result;
 import com.gmfiot.core.util.JsonUtil;
@@ -61,6 +61,13 @@ public class UsersController {
     @RequestMapping(method = RequestMethod.GET,produces = "application/json")
     public Result getUserList(UserQuery query){
         var result = userService.getList(query);
+        return  result;
+    }
+
+    @RequestMapping(path = "myTest",method = RequestMethod.GET,produces = "application/json")
+    public Result testTransaction(UserQuery query){
+        var result = userService.getList(query);
+        var aa = userService.addUsers(null);
         return  result;
     }
 
