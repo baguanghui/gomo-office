@@ -2,6 +2,7 @@ package com.gmfiot.office.internal.api.controllers;
 
 import com.gmfiot.core.data.Result;
 import com.gmfiot.core.util.JsonUtil;
+import com.gmfiot.office.mapper.UserMapper;
 import com.gmfiot.office.model.User;
 import com.gmfiot.office.model.query.UserQuery;
 import com.gmfiot.office.service.definition.UserService;
@@ -18,6 +19,9 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserMapper userMapper;
+
     /**
      * 新建用户
      * @param user
@@ -33,6 +37,7 @@ public class UsersController {
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public Result getUser(@PathVariable long id){
         var result = userService.getById(id);
+        var result2 = userMapper.selectById(id);
         return result;
     }
 

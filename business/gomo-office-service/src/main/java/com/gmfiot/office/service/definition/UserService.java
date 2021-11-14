@@ -16,7 +16,6 @@ public interface UserService {
     Result deleteById(Long id);
     Result<User> updateById(User user);
     Result<Paged<User>> getList(Query query);
-
     Result<User> addUsers(ArrayList<User> users);
     Result deleteByNameId(Long id);
 }

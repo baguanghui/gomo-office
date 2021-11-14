@@ -1,4 +1,4 @@
-package com.gmfiot.office.dao;
+package com.gmfiot.office.mapper;
 
 import com.gmfiot.core.data.Query;
 import com.gmfiot.data.BaseMapper;
@@ -26,3 +26,7 @@ public interface MenuMapper extends BaseMapper<Menu> {
     @Override
     Menu selectById(Long id);
 }
+
+
+
+

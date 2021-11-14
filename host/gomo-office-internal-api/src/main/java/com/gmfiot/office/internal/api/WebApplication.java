@@ -14,12 +14,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @SpringBootApplication
 @ComponentScan(basePackages = {
-        "com.gmfiot.office.dao",
         "com.gmfiot.office.service",
         "com.gmfiot.office.internal.api",
         "com.gmfiot.data"
 })
-@MapperScan("com.gmfiot.office.dao")
+@MapperScan("com.gmfiot.office.mapper")
 public class WebApplication {
     public static void main(String[] args) {
         SpringApplication.run(WebApplication.class,args);

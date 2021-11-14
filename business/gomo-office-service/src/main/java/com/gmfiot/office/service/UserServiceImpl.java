@@ -1,22 +1,17 @@
 package com.gmfiot.office.service;
 
-import com.gmfiot.core.BusinessException;
 import com.gmfiot.core.data.Paged;
 import com.gmfiot.core.data.Query;
 import com.gmfiot.core.data.Result;
 import com.gmfiot.data.SqlServerDataProvider;
-import com.gmfiot.office.dao.UserMapper;
 import com.gmfiot.office.model.User;
 import com.gmfiot.office.service.definition.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.TransactionCallback;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.function.Consumer;
 
 /**
  * @author ThinkPad
